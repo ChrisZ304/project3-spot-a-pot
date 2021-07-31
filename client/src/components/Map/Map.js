@@ -1,66 +1,52 @@
-import React, { Component } from 'react'; 
-import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import React, { useState, useEffect } from "react";
+import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
-export class MapComponent extends Component {
-  render() {
+export const MapComponent = (props) => {
+  const [restrooms, setRestrooms] = useState(null);
 
-    return (<div className="map-area">
+  useEffect(() => {
+    fetch("https://www.refugerestrooms.org/api/v1/restrooms")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setRestrooms(data);
+      });
+  }, []);
 
-        <Map google={this.props.google}
+  console.log(restrooms);
 
-            zoom={5}
+  return (
+    <div className="map-area">
+      <Map
+        google={props.google}
+        zoom={5}
+        center={{
+          lat: 37.5919459,
 
-            center={{
+          lng: -77.5090561,
+        }}
+      >
+        {restrooms &&
+          restrooms.map(({ latitude, longitude, id }) => (
+            <Marker
+              key={id}
+              position={{
+                lat: latitude,
 
-              lat: 37.5919459,
-
-              lng: -77.5090561
-
-            }}>
-
-
-            <Marker key="marker_1"
-
-            position={{
-
-                lat: 37.5919459,
-
-                lng: -77.5090561
-
-            }}
-
-        />
-
-    </Map>
-
-</div>);
-
-}
-
-}
-  
-
-  export default GoogleApiWrapper({
-    apiKey: ('AIzaSyCYXrxhue2vZfkXo6rIlk_uapWKN3wbQ9o')
-  })(MapComponent)
-  
+                lng: longitude,
+              }}
+            />
+          ))}
+      </Map>
 
 
 
+      
+    </div>
+  );
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyCYXrxhue2vZfkXo6rIlk_uapWKN3wbQ9o",
+})(MapComponent);
