@@ -15,6 +15,8 @@ import Rating from "./components/Rating/Rating";
 import Marker from "./components/Pin/Pin";
 import Nav from "./components/Nav/Nav";
 import Restroom from "./components/Restroom/restroom";
+import { selectionSetMatchesResult } from "@apollo/client/cache/inmemory/helpers";
+
 //import Home from './components/Home/Home'
 //import Home from './pages/Home';
 //import Maps from './components/Maps';
@@ -46,45 +48,41 @@ const client = new ApolloClient({
 });
 
 
-
-
-
-
-
-
-
 function App() {
+
+  const [coordinates, setCoordinates] = useState({latitude:null, longitude:null});
+
+  
   useEffect(() => {
-    geoFindMe()
-    
+    geoFindMe();
+  }, []);
 
  
-}, []);
+  function geoFindMe() {
+    function success(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      console.log(latitude, longitude);
+      setCoordinates({latitude, longitude})
+    }
 
-function geoFindMe() {
-  function success(position) {
-    const latitude  = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    console.log(latitude, longitude)
+    function error() {
+      console.log("Unable to retrieve your location");
+    }
+    if (!navigator.geolocation) {
+      console.log("Geolocation is not supported by your browser");
+    } else {
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
   }
-
-  function error() {
-    console.log('Unable to retrieve your location')
-  }
-  if(!navigator.geolocation) {
-    console.log('Geolocation is not supported by your browser');
-  } else {
-    
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
-}
-
 
   return (
     <ApolloProvider client={client}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Map} />
+          <Route exact path="/"  >
+          <Map latitude={coordinates.latitude} longitude={coordinates.longitude}/>
+          </Route>
           <Route exact path="/Restroom" component={Restroom} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Marker" component={Marker} />
