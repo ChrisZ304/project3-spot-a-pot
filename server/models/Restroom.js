@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const productSchema = new Schema({
-  name: {
+const restroomSchema = new Schema({
+  location: {
     type: String,
     required: true,
     trim: true
@@ -14,23 +14,18 @@ const productSchema = new Schema({
   image: {
     type: String
   },
-  price: {
-    type: Number,
-    required: true,
-    min: 0.99
-  },
-  quantity: {
+  stalls: {
     type: Number,
     min: 0,
     default: 0
   },
   category: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.RestroomId,
     ref: 'Category',
     required: true
   }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Restroom = mongoose.model('Restroom', restroomSchema);
 
-module.exports = Product;
+module.exports = Restroom;
