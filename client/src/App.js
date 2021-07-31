@@ -8,13 +8,13 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-import GoogleMap from "./components/GoogleMap/GoogleMaps";
+import Map from "./components/Map/Map";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/Signup";
-import Ratings from "./components/Ratings/Ratings";
+import Rating from "./components/Rating/Rating";
 import Marker from "./components/Marker/Marker";
 import Nav from "./components/Nav/Nav";
-import Restrooms from "./components/Restrooms/Restrooms";
+import Restroom from "./components/Restroom/restroom";
 //import Home from './components/Home/Home'
 //import Home from './pages/Home';
 //import Maps from './components/Maps';
@@ -51,12 +51,12 @@ function App() {
       <Router>
         <Switch>
           
-          <Route exact path="/" component={GoogleMap} />
-          <Route exact path="/Restrooms" component={Restrooms} />
+          <Route exact path="/" component={Map} />
+          <Route exact path="/Restroom" component={Restroom} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Marker" component={Marker} />
           <Route exact path="/Nav" component={Nav} />
-          <Route exact path="/Ratings" component={Ratings} />
+          <Route exact path="/Rating" component={Rating} />
           <Route exact path="/SignUp" component={SignUp} />
         </Switch>
       </Router>
