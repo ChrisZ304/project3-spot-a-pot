@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
@@ -45,12 +45,45 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
+
+
+
+
+
+
+
 function App() {
+  useEffect(() => {
+    geoFindMe()
+    
+
+ 
+}, []);
+
+function geoFindMe() {
+  function success(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    console.log(latitude, longitude)
+  }
+
+  function error() {
+    console.log('Unable to retrieve your location')
+  }
+  if(!navigator.geolocation) {
+    console.log('Geolocation is not supported by your browser');
+  } else {
+    
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+}
+
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <Switch>
-          
           <Route exact path="/" component={Map} />
           <Route exact path="/Restroom" component={Restroom} />
           <Route exact path="/Login" component={Login} />

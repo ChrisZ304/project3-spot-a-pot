@@ -4,8 +4,13 @@ import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 export const MapComponent = (props) => {
   const [restrooms, setRestrooms] = useState(null);
 
+
+
+
   useEffect(() => {
-    fetch("https://www.refugerestrooms.org/api/v1/restrooms")
+    
+    
+    fetch("https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=37.59&lng=-77.5")
       .then((res) => {
         return res.json();
       })
@@ -22,9 +27,9 @@ export const MapComponent = (props) => {
         google={props.google}
         zoom={5}
         center={{
-          lat: 37.5919459,
+          lat: 37,
 
-          lng: -77.5090561,
+          lng: -77,
         }}
       >
         {restrooms &&
@@ -42,7 +47,7 @@ export const MapComponent = (props) => {
 
 
 
-      
+
     </div>
   );
 };
