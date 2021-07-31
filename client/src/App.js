@@ -12,7 +12,7 @@ import Map from "./components/Map/Map";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/Signup";
 import Rating from "./components/Rating/Rating";
-import Marker from "./components/Marker/Marker";
+import Marker from "./components/Pin/Pin";
 import Nav from "./components/Nav/Nav";
 import Restroom from "./components/Restroom/restroom";
 //import Home from './components/Home/Home'
@@ -23,7 +23,7 @@ import Restroom from "./components/Restroom/restroom";
 //import Login from './components/Login/Login';
 //import Signup from './pages/Signup';
 //import Nav from './components/Nav';
-//import { StoreProvider } from './utils/GlobalState';
+//import { AppProvider } from './utils/GlobalState';
 //import LandingPage from './componets/LandingPAge';
 
 const httpLink = createHttpLink({

@@ -1,6 +1,9 @@
 import react from "react"
-import { Map } from .
- const Restrooms = () => {
+
+import Map from "./Map"
+ 
+
+/*const Restrooms = () => {
      const[restrooms, setRestrooms] = useState(null);
 
      const handleDelete = (id) => {
@@ -30,7 +33,7 @@ import { Map } from .
 
 
 
- export default Restrooms;
+ export default Restrooms;*/
 
 
 
