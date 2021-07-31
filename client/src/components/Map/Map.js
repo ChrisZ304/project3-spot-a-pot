@@ -1,35 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
+
 export const MapComponent = (props) => {
   const [restrooms, setRestrooms] = useState(null);
 
-
+const {latitude, longitude} = props
 
 
   useEffect(() => {
-    
-    
-    fetch("https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=37.59&lng=-77.5")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setRestrooms(data);
-      });
-  }, []);
 
-  console.log(restrooms);
+    if (latitude && longitude) {
+      fetch(
+        `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${latitude}&lng=${longitude}`
+      )
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setRestrooms(data);
+        });
+    }
+  }, [latitude, longitude]);
+
 
   return (
     <div className="map-area">
       <Map
         google={props.google}
-        zoom={5}
+        zoom={13}
         center={{
-          lat: 37,
+          lat: latitude,
 
-          lng: -77,
+          lng: longitude,
         }}
       >
         {restrooms &&
@@ -44,10 +47,6 @@ export const MapComponent = (props) => {
             />
           ))}
       </Map>
-
-
-
-
     </div>
   );
 };
