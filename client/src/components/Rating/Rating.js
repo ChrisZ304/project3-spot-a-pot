@@ -11,8 +11,18 @@ export default function MyComponent() {
   }
 
   return (
-    <div className='App'>
-      <Rating onClick={handleRating} ratingValue={rating} /* Rating Props */ />
+    
+    <div className="container my-1" form={{type:"text"}}  style={{backgroundColor: "blue"}}>
+    <form>
+  <label style={{fontWeight:'bold'}} >
+    Written Review:
+    <textArea style={{width: '601px', height: '100px'}} type="text" Review="review" />
+  </label>
+  <input type="submit" value="Submit" />
+</form>
+    <Rating onClick={handleRating} ratingValue={rating} /* Rating Props */ />
+    <form type="text" name="field[]" />
     </div>
+    
   )
 }

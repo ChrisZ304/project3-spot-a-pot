@@ -68,3 +68,46 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+
+export const QUERY_RATINGS = gql`
+  {
+    user {
+      firstName
+      lastName
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+        }
+      }
+    }
+  }
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

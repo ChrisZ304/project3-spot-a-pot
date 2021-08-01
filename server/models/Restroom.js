@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const restroomSchema = new Schema({
+  id: {
+
+    
+  }
   location: {
     type: String,
     required: true,
