@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
-
+import { Map, Marker, GoogleApiWrapper, InfoWindow } from "google-maps-react";
+import RestroomInfo from "./RestroomInfo";
 
 export const MapComponent = (props) => {
   const [restrooms, setRestrooms] = useState(null);
-
-const {latitude, longitude} = props
-
+  const [selectedRestroom, setSelectedRestroom] = useState(null);
+  const { latitude, longitude } = props;
 
   useEffect(() => {
-
     if (latitude && longitude) {
       fetch(
         `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${latitude}&lng=${longitude}`
@@ -23,7 +21,6 @@ const {latitude, longitude} = props
     }
   }, [latitude, longitude]);
 
-
   return (
     <div className="map-area">
       <Map
@@ -36,16 +33,31 @@ const {latitude, longitude} = props
         }}
       >
         {restrooms &&
-          restrooms.map(({ latitude, longitude, id }) => (
+          restrooms.map((restroom) => (
             <Marker
-              key={id}
+              key={restroom.id}
               position={{
-                lat: latitude,
-
-                lng: longitude,
+                lat: restroom.latitude,
+                lng: restroom.longitude,
               }}
-            />
+              onClick={() => setSelectedRestroom(restroom)}
+              clickable
+            ></Marker>
           ))}
+        {selectedRestroom && (
+          <InfoWindow
+            onCloseClick={() => {
+              setSelectedRestroom(null);
+            }}
+            position={{
+              lat: selectedRestroom.latitude,
+              lng: selectedRestroom.longitude,
+            }}
+            visible={selectedRestroom !== null}
+          >
+            <RestroomInfo restroom={selectedRestroom} />
+          </InfoWindow>
+        )}
       </Map>
     </div>
   );

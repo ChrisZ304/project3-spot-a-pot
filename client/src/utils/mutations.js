@@ -1,5 +1,17 @@
 import { gql } from '@apollo/client';
 
+export const RATING = gql`
+  mutation ratings($email: String!, $password: String!) {
+    Rating(email: $email, password: $password) {
+      token
+      user {
+        _id
+      }
+    }
+  }
+`;
+
+
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {

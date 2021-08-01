@@ -93,9 +93,9 @@ db.once('open', async () => {
       
     },
     
-  console.log('Data seeded successfully!');
+  console.log('Data seeded successfully!'),
 
-  await User.deleteMany();
+  await User.deleteMany(),
 
   await User.create({
     firstName: 'Pamela',
@@ -107,16 +107,16 @@ db.once('open', async () => {
         donations: [donations[0]._id, donations[0]._id, donations[1]._id]
       }
     ]
-  });
+  }),
 
   await User.create({
     firstName: 'Elijah',
     lastName: 'Holt',
     email: 'eholt@testmail.com',
     password: 'password12345'
-  });
+  }),
 
-  console.log('users seeded');
+  console.log('users seeded'),
 
-  process.exit();
-});
+  process.exit(),
+])})
