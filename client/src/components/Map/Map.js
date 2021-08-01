@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Map, Marker, GoogleApiWrapper, InfoWindow } from "google-maps-react";
 import RestroomInfo from "./RestroomInfo";
+import MyComponent from "./RestroomRatingButton";
+
 
 export const MapComponent = (props) => {
   const [restrooms, setRestrooms] = useState(null);
   const [selectedRestroom, setSelectedRestroom] = useState(null);
   const { latitude, longitude } = props;
+
+
 
   useEffect(() => {
     if (latitude && longitude) {
@@ -56,6 +60,8 @@ export const MapComponent = (props) => {
             visible={selectedRestroom !== null}
           >
             <RestroomInfo restroom={selectedRestroom} />
+            
+            <MyComponent/>
           </InfoWindow>
         )}
       </Map>
