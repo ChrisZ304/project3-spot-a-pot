@@ -1,20 +1,20 @@
 import React from 'react';
-import {Marker} from 'react-google-maps';
+import {Pin} from 'react-google-maps';
 
 
-const CustomMarker = (props) => {
+const CustomPin = (props) => {
     const {id} = props;
 
-    const onMarkerClick = (evt) => {
+    const onPinClick = (evt) => {
         console.log(id);
     };
 
     return (
-        <Marker
-            onClick={onMarkerClick}
+        <Pin
+            onClick={onPinClick}
             {...props}
         />
     );
 };
 
-export default CustomMarker;
+export default CustomPin;
