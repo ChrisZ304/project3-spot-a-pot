@@ -3,10 +3,13 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const restroomSchema = new Schema({
+pins
   id: {
     type: Number,
     required: true
   },
+=======
+main
   location: {
     type: String,
     required: true,

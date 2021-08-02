@@ -8,7 +8,7 @@ const resolvers = {
     categories: async () => {
       return await Category.find();
     },
-    products: async (parent, { category, name }) => {
+    restrooms: async (parent, { category, name }) => {
       const params = {};
 
       if (category) {
@@ -21,29 +21,29 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate('category');
+      return await Restroom.find(params).populate('category');
     },
-    product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+    restroom: async (parent, { _id }) => {
+      return await Restroom.findById(_id).populate('category');
     },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
+          path: 'restroom.restrooms',
           populate: 'category'
         });
 
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+        user.restrooms.sort((a, b) => b.addDate - a.addDate);
 
         return user;
       }
 
       throw new AuthenticationError('Not logged in');
     },
-    order: async (parent, { _id }, context) => {
+    donation: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
+          path: 'restroom.restrooms',
           populate: 'category'
         });
 
@@ -54,21 +54,21 @@ const resolvers = {
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
-      const order = new Order({ products: args.products });
+      const order = new Order({ restrooms: args.restrooms });
       const line_items = [];
 
-      const { products } = await order.populate('products').execPopulate();
+      const { restrooms } = await order.populate('restrooms').execPopulate();
 
-      for (let i = 0; i < products.length; i++) {
-        const product = await stripe.products.create({
-          name: products[i].name,
-          description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
+      for (let i = 0; i < restrooms.length; i++) {
+        const restroom = await stripe.restrooms.create({
+          name: restrooms[i].name,
+          description: restrooms[i].description,
+          images: [`${url}/images/${restrooms[i].image}`]
         });
 
         const price = await stripe.prices.create({
-          product: product.id,
-          unit_amount: products[i].price * 100,
+          restroom: restroom.id,
+          unit_amount: restrooms[i].price * 100,
           currency: 'usd',
         });
 
@@ -96,10 +96,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addOrder: async (parent, { products }, context) => {
+    addOrder: async (parent, { restrooms }, context) => {
       console.log(context);
       if (context.user) {
-        const order = new Order({ products });
+        const order = new Order({ restrooms });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
@@ -118,7 +118,7 @@ const resolvers = {
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      return await Restroom.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

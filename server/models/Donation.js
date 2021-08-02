@@ -7,10 +7,9 @@ const donationSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  dollarAmt: [
+  USDAmt: [
     {
-      //type:
-      //ref:
+      type: Number,
     },
   ],
 });
