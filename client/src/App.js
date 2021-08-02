@@ -15,6 +15,9 @@ import Rating from "./components/Rating/Rating";
 import Marker from "./components/Pin/Pin";
 import Nav from "./components/Nav/Nav";
 import Restroom from "./components/Restroom/restroom";
+import { GoogleApiWrapper } from "google-maps-react";
+import Wrapper from "./components/wrapper/wrapper"
+
 //import { selectionSetMatchesResult } from "@apollo/client/cache/inmemory/helpers";
 
 //import Home from './components/Home/Home'
@@ -79,7 +82,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Switch>
+        <Nav />
+        <Wrapper>
+          <Switch>
           <Route exact path="/"  >
           <Map latitude={coordinates.latitude} longitude={coordinates.longitude}/>
           </Route>
@@ -89,7 +94,8 @@ function App() {
           <Route exact path="/Nav" component={Nav} />
           <Route exact path="/Rating" component={Rating} />
           <Route exact path="/SignUp" component={SignUp} />
-        </Switch>
+          </Switch>
+        </Wrapper>
       </Router>
     </ApolloProvider>
   );
