@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_PRODUCTS = gql`
-  query getProducts($category: ID) {
-    products(category: $category) {
+  query getRestrooms($category: ID) {
+    restrooms(category: $category) {
       _id
       name
       description
@@ -17,8 +17,8 @@ export const QUERY_PRODUCTS = gql`
 `;
 
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
+  query getCheckout($restrooms: [ID]!) {
+    checkout(restrooms: $restrooms) {
       session
     }
   }
@@ -26,12 +26,11 @@ export const QUERY_CHECKOUT = gql`
 
 export const QUERY_ALL_PRODUCTS = gql`
   {
-    products {
+    restrooms {
       _id
       name
       description
-      price
-      quantity
+      stalls
       category {
         name
       }
@@ -53,15 +52,13 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
-      orders {
+      donations {
         _id
-        purchaseDate
-        products {
+        donationDate
+        restrooms {
           _id
           name
           description
-          price
-          quantity
           image
         }
       }
@@ -75,15 +72,12 @@ export const QUERY_RATINGS = gql`
     user {
       firstName
       lastName
-      orders {
+      restrooms {
         _id
-        purchaseDate
-        products {
+        restrooms {
           _id
           name
           description
-          price
-          quantity
           image
         }
       }
