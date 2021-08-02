@@ -5,15 +5,15 @@ export function pluralize(name, count) {
   return name + 's';
 }
 
-export function idbPromise(storeName, method, object) {
+export function idbPromise(spotapot, method, object) {
   return new Promise((resolve, reject) => {
-    const request = window.indexedDB.open('shop-shop', 1);
-    let db, tx, store;
+    const request = window.indexedDB.open('spotapot', 1);
+    let db, tx, spotapot;
     request.onupgradeneeded = function(e) {
       const db = request.result;
-      db.createObjectStore('products', { keyPath: '_id' });
-      db.createObjectStore('categories', { keyPath: '_id' });
-      db.createObjectStore('cart', { keyPath: '_id' });
+      db.createObjectSpotapot('restrooms', { keyPath: '_id' });
+      db.createObjectSpotapot('categories', { keyPath: '_id' });
+      db.createObjectSpotapot('donationCart', { keyPath: '_id' });
     };
 
     request.onerror = function(e) {
@@ -22,8 +22,8 @@ export function idbPromise(storeName, method, object) {
 
     request.onsuccess = function(e) {
       db = request.result;
-      tx = db.transaction(storeName, 'readwrite');
-      store = tx.objectStore(storeName);
+      tx = db.transaction(appName, 'readwrite');
+      store = tx.objectStore(appName);
 
       db.onerror = function(e) {
         console.log('error', e);
