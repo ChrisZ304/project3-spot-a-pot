@@ -4,30 +4,31 @@ const { Schema } = mongoose;
 
 const restroomSchema = new Schema({
   id: {
-
-    
-  }
+    type: Number,
+    required: true
+  },
   location: {
     type: String,
     required: true,
     trim: true
   },
-  description: {
+  review: {
     type: String
   },
   image: {
     type: String
   },
-  stalls: {
-    type: Number,
-    min: 0,
-    default: 0
+  accessible: {
+    type: Boolean,
+    required: true,
+    trim: true
   },
-  category: {
+  unisex: {
     type: Schema.Types.RestroomId,
     ref: 'Category',
     required: true
-  }
+  }, 
+  
 });
 
 const Restroom = mongoose.model('Restroom', restroomSchema);

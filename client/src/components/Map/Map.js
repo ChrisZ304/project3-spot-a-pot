@@ -60,8 +60,11 @@ export const MapComponent = (props) => {
             visible={selectedRestroom !== null}
           >
             <RestroomInfo restroom={selectedRestroom} />
+
             
-            <MyComponent/>
+            <MyComponent />
+            
+
           </InfoWindow>
         )}
       </Map>
