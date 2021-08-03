@@ -19,7 +19,7 @@ const mainPage = () => {
                         <blockquote className="blockquote mb-0">
           <div className="row">
          <div className="col-md-3">
-       <img id="pic" src="src/img/76_pp.jpg" alt="profile pic" width="100%" height="auto%" />
+       <img id="pic" src="" alt="app-logo" width="100%" height="auto%" />
       </div>
 
     <div className="col-md-8">

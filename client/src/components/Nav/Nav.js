@@ -34,6 +34,11 @@ function Nav() {
               Login
             </Link>
           </li>
+          <li className="mx-1">
+            <Link to="/logout">
+              Logout
+            </Link>
+          </li>
         </ul>
       );
     }
