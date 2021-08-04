@@ -1,14 +1,13 @@
 import { useReducer } from "react";
 import {
   UPDATE_RESTROOMS,
-  ADD_TO_DONATIONCART,
+  ADD_TO_CART,
   UPDATE_USDAMT,
-  REMOVE_FROM_DONATIONCART,
+  REMOVE_FROM_CART,
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
-  CLEAR_DONATIONCART,
-  TOGGLE_DONATIONCART,
-  REMOVE_FROM_DONATIONCART
+  CLEAR_CART,
+  TOGGLE_CART
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -19,47 +18,47 @@ export const reducer = (state, action) => {
         restrooms: [...action.restrooms],
       };
 
-    case ADD_TO_DONATIONCART:
+    case ADD_TO_CART:
       return {
         ...state,
-        donationCartOpen: true,
-        donationCart: [...state.donationCart, action.donation],
+        cartOpen: true,
+        cart: [...state.cart, action.donation],
       };
 
     case UPDATE_USDAMT:
       return {
         ...state,
-        donationCartOpen: true,
-        donationCart: state.donationCart.map(donation => {
+        cartOpen: true,
+        cart: state.cart.map(donation => {
           if (action._id === donation._id) {
-            donation.usdAmt = action.usdAmt
+            donation.purchaseQuantity = action.purchaseQuantity
           }
           return donation
         })
       };
 
-    case REMOVE_FROM_DONATIONCART:
-      let newState = state.donationCart.filter(donation => {
+    case REMOVE_FROM_CART:
+      let newState = state.cart.filter(donation => {
         return donation._id !== action._id;
       });
 
       return {
         ...state,
-        donationCartOpen: newState.length > 0,
-        donationCart: newState
+        cartOpen: newState.length > 0,
+        cart: newState
       };
 
     case CLEAR_CART:
       return {
         ...state,
-        donationCartOpen: false,
-        donationCart: []
+        cartOpen: false,
+        cart: []
       };
 
-    case TOGGLE_DONATIONCART:
+    case TOGGLE_CART:
       return {
         ...state,
-        donationCartOpen: !state.donationCartOpen
+        cartOpen: !state.cartOpen
       };
 
     case UPDATE_CATEGORIES:
