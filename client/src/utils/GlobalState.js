@@ -4,7 +4,7 @@ import { useProductReducer } from './reducers'
 const StoreContext = createContext();
 const { Provider } = StoreContext;
 
-const AppProvider = ({ value = [], ...props }) => {
+const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
     products: [],
     cart: [],
@@ -20,4 +20,4 @@ const useStoreContext = () => {
   return useContext(StoreContext);
 };
 
-export { AppProvider, useStoreContext };
+export { StoreProvider, useStoreContext };

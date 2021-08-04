@@ -23,6 +23,7 @@ import Wrapper from "./components/wrapper/wrapper"
 //import Home from './components/Home/Home'
 //import Home from './pages/Home';
 //import Maps from './components/Maps';
+//import Detail from './pages/Detail';
 //import NoMatch from './pages/NoMatch';
 //import Login from './components/Login/Login';
 //import Signup from './pages/Signup';
