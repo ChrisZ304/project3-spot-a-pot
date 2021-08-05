@@ -24,10 +24,10 @@ When you're out and about and you need to GO, where do you turn?? You turn to yo
 
 ## Images
 
-
-
+![]
+![hospital-comment](client/public/images/hospital comment.png)
 ## Deployed application
-Heroku: https://spotapot.herokuapp.com/
+Heroku: https://project3-spot-a-pot.herokuapp.com/
 Github:
 
 ## APIs Used:
