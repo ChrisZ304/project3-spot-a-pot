@@ -24,7 +24,8 @@ When you're out and about and you need to GO, where do you turn?? You turn to yo
 
 ## Images
 
-![hospital-comment](client/public/images/hospital-comment.png)
+![hospital-comment](https://github.com/ChrisZ304/project3-spot-a-pot/blob/main/client/public/images/brewery%20comment%20screenshot.png?raw=true) <br />
+
 ## Deployed application
 Heroku: https://project3-spot-a-pot.herokuapp.com/
 Github:
