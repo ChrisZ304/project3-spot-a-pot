@@ -55,7 +55,6 @@ function App() {
 
   const [coordinates, setCoordinates] = useState({latitude:null, longitude:null});
 
-  
   useEffect(() => {
     geoFindMe();
   }, []);
@@ -78,7 +77,6 @@ function App() {
       navigator.geolocation.getCurrentPosition(success, error);
     }
   }
-
   return (
     <ApolloProvider client={client}>
       <Router>

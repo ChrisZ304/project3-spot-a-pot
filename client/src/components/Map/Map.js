@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Map, Marker, GoogleApiWrapper, InfoWindow } from "google-maps-react";
 import RestroomInfo from "./RestroomInfo";
-import MyComponent from "./RestroomRatingButton";
-
+import StarComponent from "../Rating/Rating";
+//import RestroomRatingButton from '../Map/RestroomRatingButton';
+//import RestroomRatingButton from "./RestroomRatingButton";
 
 export const MapComponent = (props) => {
   const [restrooms, setRestrooms] = useState(null);
   const [selectedRestroom, setSelectedRestroom] = useState(null);
   const { latitude, longitude } = props;
 
-
+  //const {  getCurrentPosition } = props;
 
   useEffect(() => {
     if (latitude && longitude) {
       fetch(
-        `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&offset=0&lat=${latitude}&lng=${longitude}`
+        `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=50&offset=0&lat=${latitude}&lng=${longitude}`
       )
         .then((res) => {
           return res.json();
@@ -61,10 +62,7 @@ export const MapComponent = (props) => {
           >
             <RestroomInfo restroom={selectedRestroom} />
 
-            
-            <MyComponent />
-            
-
+            <StarComponent />
           </InfoWindow>
         )}
       </Map>
