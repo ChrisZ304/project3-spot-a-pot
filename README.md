@@ -50,7 +50,14 @@ Github:
 
 ## Contact
 
-Contact with questions or comments at: 
+Contact with questions or comments at: <br />                     
+Christopher Zacharias <br />
 c.zacharias2021@gmail.com <br /> 
-[ChrisZ304](https://github.com/chrisz304) <br />
+[ChrisZ304](https://github.com/chrisz304)<br />
+
+Alexander Vandenesse <br />
+vandenessea96@gmail.com <br />
+(804)519-6717 <br />
+[Vandenessea](https://github.com/vandenessea)
+
 
