@@ -24,7 +24,7 @@ When you're out and about and you need to GO, where do you turn?? You turn to yo
 
 ## Images
 ![screenshot](https://github.com/ChrisZ304/project3-spot-a-pot/blob/main/client/public/images/hospital%20comment.png?raw=true) <br />
-
+![screenshot](https://github.com/ChrisZ304/project3-spot-a-pot/blob/main/client/public/images/richmond%20library%20comment.png?raw=true) <br />
 ![screenshot](https://github.com/ChrisZ304/project3-spot-a-pot/blob/main/client/public/images/brewery%20comment%20screenshot.png?raw=true) <br />
 
 
