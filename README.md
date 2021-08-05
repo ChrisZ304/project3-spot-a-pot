@@ -24,15 +24,14 @@ When you're out and about and you need to GO, where do you turn?? You turn to yo
 
 ## Images
 
-
-[![hospital-comment](client/public/images/hospital-comment.png)]
+![hospital-comment](client/public/images/hospital-comment.png)
 ## Deployed application
 Heroku: https://project3-spot-a-pot.herokuapp.com/
 Github:
 
 ## APIs Used:
 
-- Google Maps: "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+- Google Api's: https://cloud.google.com/apis
 
 - www.refugerestrooms.org/api
 
