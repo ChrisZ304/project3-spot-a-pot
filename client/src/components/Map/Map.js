@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Map, Marker, GoogleApiWrapper, InfoWindow } from "google-maps-react";
+//import StarRatings from "./react-star-ratings";
 import RestroomInfo from "./RestroomInfo";
-import StarComponent from "../Rating/Rating";
+
+import MyComponent from "../Rating/Rating";
+
+
 //import RestroomRatingButton from '../Map/RestroomRatingButton';
 //import RestroomRatingButton from "./RestroomRatingButton";
 
@@ -62,7 +66,7 @@ export const MapComponent = (props) => {
           >
             <RestroomInfo restroom={selectedRestroom} />
 
-            <StarComponent />
+            <MyComponent/>
           </InfoWindow>
         )}
       </Map>
