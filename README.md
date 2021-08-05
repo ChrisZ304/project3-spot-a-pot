@@ -1,42 +1,56 @@
-# project3-spot-a-pot
+# Project3-Spot-A-Pot
 
-A brief description about Spot-A-Pot:
+![GitHub license](https://img.shields.io/badge/license-MIT-ff69b4.svg) <br />
 
-When your out and about and you need to GO, where do you turn?? You turn to your favorite, and most immediate app: Spot-A-Pot! With just the tap of an icon, your nearest restroom will be just a waddle away!
+## Table of Contents 
 
-We've all been there in the peirls of a much needed evacuation. Maybe your out with friends, at a park, maybe a parade, local convention, or on a shopping spree and the urge comes on like an unenvited guest! When those times call, we are here to you give you a rest, and a local room to do that in.
+- [Description](#description)
+- [Images](#images)
+- [Deployed](#deployed-application)
+- [Languages](#languages)
+- [License](#license)
+- [Contact the Developers](#contact)
 
-We want users to feel free to go out and about, without the need to call ahead to a desitination unknown as to weither or not a local bathrrom exists. Spot-A-Pot offers comfort from the inevitable needs of human nature. ITs as easy to use as flushing a toilot, perhaps even easier.....
+<br />
+<br />
 
-Spot-A-Pot will track your location, of course with your persmission, and locate the nearest restroom to your proximity, just for you!
+## Description
 
-"Were here for you, when were most needed"
+We've all been there in the perils of a much needed evacuation. Maybe you're out with friends, at a park, at a parade, or on a shopping spree when nature calls like an uninvited guest!
 
-Technologies used:
-_ Mongo Database
-_ Express Server
-_ React UI
-_ Node JS and Bootstrap
+When you're out and about and you need to GO, where do you turn?? You turn to your favorite, and most immediate app: Spot-A-Pot! Spot-A-Pot will track your location, and pin locations on a map to display the closest restrooms in your proximity. With just the tap of an icon, your nearest restroom is just a waddle away!
 
-Project requirements:
-_ Must use GraphQL with a Node.js and Express.js server
-_ Must use MongoDB and the Mongoose ODM for the database
-_ Must use queries and mutations for retrieving, adding, updating, and deleting data
-_ Must be deployed using Heroku(with date)
-_ Must have a polished UI
-_ Must be interactive (i.e., accept and respond to user input)
-_ Must include authentication (JWT)
-_ Must protect sensitive API key information on the server
-_ Must have a high quality README (with unique name, description, technologies used, screenshot, and link to be deployed application)
-_ Must have a clean repository that meets quality coding standards
-\_ Must look professional and be mobile-friendly
+<br />
 
-Deployed App:
+## Images
 
-Github link:
+![]
+![hospital-comment](client/public/images/hospital comment.png)
+## Deployed application
+Heroku: https://project3-spot-a-pot.herokuapp.com/
+Github:
 
-APIs Used:
+## APIs Used:
 
 - Google Maps: "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
 
 - www.refugerestrooms.org/api
+
+
+## Languages and Technologies:
+- Mongo Database
+- Express Server
+- React UI
+- Node JS
+- Bootstrap   <br />
+
+## License
+
+  This project is licensed under the MIT license. <br />
+
+## Contact
+
+Contact with questions or comments at: 
+c.zacharias2021@gmail.com <br /> 
+[ChrisZ304](https://github.com/chrisz304) <br />
+
