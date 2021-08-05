@@ -36,7 +36,7 @@ Github:
 
 - Google Api's: https://cloud.google.com/apis
 
-- www.refugerestrooms.org/api
+- Refuge Restrooms: www.refugerestrooms.org/api
 
 
 ## Languages and Technologies:
