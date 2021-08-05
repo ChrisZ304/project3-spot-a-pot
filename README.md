@@ -24,12 +24,14 @@ When you're out and about and you need to GO, where do you turn?? You turn to yo
 
 ## Images
 
+
 ![screenshot](client/public/images/richmond-library-comment.png)
 ![screenshot](client/public/images/hospital-comment.png)
 ![screenshot](client/public/images/main-map.png)
 ![screenshot](client/public/images/brewery-comment-screenshot.png)
+
 ## Deployed application
-Heroku: https://spotapot.herokuapp.com/
+Heroku: https://project3-spot-a-pot.herokuapp.com/
 Github:
 
 ## APIs Used:
@@ -61,3 +63,5 @@ Alexander Vandenesse <br />
 vandenessea96@gmail.com <br />
 (804)519-6717 <br />
 [Vandenessea](https://github.com/vandenessea)
+
+
