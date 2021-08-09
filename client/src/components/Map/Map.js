@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Map, Marker, GoogleApiWrapper, InfoWindow } from "google-maps-react";
+import {
+  Map,
+  Marker,
+  GoogleApiWrapper,
+  InfoWindow,
+  Icon,
+} from "google-maps-react";
 //import StarRatings from "./react-star-ratings";
 import RestroomInfo from "./RestroomInfo";
 
 import MyComponent from "../Rating/Rating";
-
 
 //import RestroomRatingButton from '../Map/RestroomRatingButton';
 //import RestroomRatingButton from "./RestroomRatingButton";
@@ -37,10 +42,19 @@ export const MapComponent = (props) => {
         zoom={13}
         center={{
           lat: latitude,
-
           lng: longitude,
         }}
       >
+        {
+          <Marker
+            position={{
+              lat: latitude,
+              lng: longitude,
+            }}
+            title={"My location"}
+            icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
+          />
+        }
         {restrooms &&
           restrooms.map((restroom) => (
             <Marker
@@ -55,6 +69,7 @@ export const MapComponent = (props) => {
           ))}
         {selectedRestroom && (
           <InfoWindow
+          
             onCloseClick={() => {
               setSelectedRestroom(null);
             }}
@@ -65,8 +80,9 @@ export const MapComponent = (props) => {
             visible={selectedRestroom !== null}
           >
             <RestroomInfo restroom={selectedRestroom} />
-
-            <MyComponent/>
+           
+            <MyComponent />
+           
           </InfoWindow>
         )}
       </Map>

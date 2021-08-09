@@ -1,38 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
 const restroomSchema = new Schema({
-pins,
-  id: {
-    type: Number,
-    required: true
-  },
-
-mainlocation: {
+  name: {
     type: String,
     required: true,
-    trim: true
-  },
-  review: {
-    type: String
-  },
-  image: {
-    type: String
+    unique: true,
+    trim: true,
   },
   accessible: {
     type: Boolean,
     required: true,
-    trim: true
+    trim: true,
   },
-  unisex: {
-    type: Schema.Types.RestroomId,
-    ref: 'Category',
-    required: true
-  }, 
-  
+  comment: {
+    type: String,
+  },
+  distance: {
+    type: Number,
+  },
+  bearing: {
+    type: String,
+  },
 });
 
-const Restroom = mongoose.model('Restroom', restroomSchema);
+const Restroom = mongoose.model("Restroom", restroomSchema);
 
 module.exports = Restroom;
