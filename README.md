@@ -29,7 +29,7 @@ When you're out and about and you need to GO, where do you turn?? You turn to yo
 
 
 ## Deployed application
-Heroku: https://project3-spot-a-pot.herokuapp.com/
+Heroku: https://spot-a-pot.herokuapp.com/
 Github:
 
 ## APIs Used:
